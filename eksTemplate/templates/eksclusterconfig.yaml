@@ -1,0 +1,51 @@
+apiVersion: eks.cattle.io/v1
+kind: EKSClusterConfig
+metadata:
+  name: {{ .Values.name }}
+  namespace: cattle-global-data
+spec:
+  amazonCredentialSecret: cattle-global-data:cc-px5ft
+  displayName: {{ .Values.displayName }}
+  imported: false
+  kmsKey: ""
+  kubernetesVersion: "1.21"
+  loggingTypes:
+  - api
+  - audit
+  - authenticator
+  - controllerManager
+  - scheduler
+  nodeGroups:
+  - desiredSize: 2
+    diskSize: 30
+    ec2SshKey: rancherDev
+    gpu: false
+    imageId: null
+    instanceType: t3a.medium
+    labels: {}
+    launchTemplate: null
+    maxSize: 3
+    minSize: 1
+    nodegroupName: {{ .Values.ngName }}
+    requestSpotInstances: false
+    resourceTags: {}
+    spotInstanceTypes: null
+    subnets:
+    - subnet-0b8b13eb91c712eeb
+    - subnet-08715376e57a4f84b
+    tags: {}
+    userData: null
+    version: "1.21"
+  privateAccess: true
+  publicAccess: false
+  publicAccessSources:
+  - 0.0.0.0/0
+  region: us-east-1
+  secretsEncryption: false
+  securityGroups:
+  - sg-0b8d625a82a2dc5ef
+  serviceRole: ""
+  subnets:
+  - subnet-0b8b13eb91c712eeb
+  - subnet-08715376e57a4f84b
+  tags: {}
