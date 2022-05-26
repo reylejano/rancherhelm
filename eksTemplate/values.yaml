@@ -1,26 +1,26 @@
 ## AWS Region ##
-region: ${region}
+region: 
 
 ## Basic Parameters for EKS Cluster and Worker Nodes
-instance_count: ${instance_count}
-sshKey: ${sshKey}
-security_grp: ${security_grp}
-instance_type: ${instance_type}
+instance_count: 
+sshKey: 
+security_grp: 
+instance_type: 
 
 ## Private subnets group 1 ##
-subnet_grp_1a: ${subnet_grp_1a}
-subnet_grp_1b: ${subnet_grp_1b}
-subnet_grp_1c: ${subnet_grp_1c}
+subnet_grp_1a: 
+subnet_grp_1b: 
+subnet_grp_1c: 
 
 ## Tags ##
-name: ${eks-name}
-displayName: ${display_name}
-ngName: ${worker_name}
-app_name: ${app_name}
-ci: ${ci}
-creator: ${creator}
-env: ${env}
-function: ${function}
-risk: ${risk}
-uai: ${uai}
+name: 
+displayName: 
+ngName: 
+app_name: 
+ci: 
+creator: 
+env: 
+function: 
+risk: 
+uai: 
 
