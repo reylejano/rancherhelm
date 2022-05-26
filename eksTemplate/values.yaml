@@ -2,21 +2,21 @@
 region: ${region}
 
 ## Basic Parameters for EKS Cluster and Worker Nodes
-instance-count: ${instance-count}
+instance_count: ${instance_count}
 sshKey: ${sshKey}
-security-grp: ${security-grp}
-instance-type: ${instance-type}
+security_grp: ${security_grp}
+instance_type: ${instance_type}
 
 ## Private subnets group 1 ##
-subnet-grp-1a: ${subnet-grp-1a}
-subnet-grp-1b: ${subnet-grp-1b}
-subnet-grp-1c: ${subnet-grp-1c}
+subnet_grp_1a: ${subnet_grp_1a}
+subnet_grp_1b: ${subnet_grp_1b}
+subnet_grp_1c: ${subnet_grp_1c}
 
 ## Tags ##
 name: ${eks-name}
-displayName: ${display-name}
-ngName: ${worker-name}
-app-name: ${app-name}
+displayName: ${display_name}
+ngName: ${worker_name}
+app_name: ${app_name}
 ci: ${ci}
 creator: ${creator}
 env: ${env}
