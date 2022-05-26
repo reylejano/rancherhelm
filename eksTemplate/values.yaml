@@ -1,3 +1,26 @@
-name: defaultName
-displayName: defaultDisplayName
-ngName: defaultNgName
+## AWS Region ##
+region: ${region}
+
+## Basic Parameters for EKS Cluster and Worker Nodes
+instance-count: ${instance-count}
+sshKey: ${sshKey}
+security-grp: ${security-grp}
+instance-type: ${instance-type}
+
+## Private subnets group 1 ##
+subnet-grp-1a: ${subnet-grp-1a}
+subnet-grp-1b: ${subnet-grp-1b}
+subnet-grp-1c: ${subnet-grp-1c}
+
+## Tags ##
+name: ${eks-name}
+displayName: ${display-name}
+ngName: ${worker-name}
+app-name: ${app-name}
+ci: ${ci}
+creator: ${creator}
+env: ${env}
+function: ${function}
+risk: ${risk}
+uai: ${uai}
+
