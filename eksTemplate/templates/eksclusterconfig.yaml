@@ -16,12 +16,12 @@ spec:
   - controllerManager
   - scheduler
   nodeGroups:
-  - desiredSize: {{ .Values.instance-count }}
+  - desiredSize: {{ .Values.instance_count }}
     diskSize: 30
-    ec2SshKey: {{ .Values.rancherDev }}
+    ec2SshKey: {{ .Values.sshKey }}
     gpu: false
     imageId: null
-    instanceType: {{ .Values.instance.type }}
+    instanceType: {{ .Values.instance_type }}
     labels: {}
     launchTemplate: null
     maxSize: 3
@@ -31,9 +31,9 @@ spec:
     resourceTags: {}
     spotInstanceTypes: null
     subnets:
-    - {{ .Values.subnet-grp-1a }}
-    - {{ .Values.subnet-grp-1b }}
-    - {{ .Values.subnet-grp-1c }}
+    - {{ .Values.subnet_grp_1a }}
+    - {{ .Values.subnet_grp_1b }}
+    - {{ .Values.subnet_grp_1c }}
     tags: {}
     userData: null
     version: "1.21"
@@ -44,14 +44,14 @@ spec:
   region: {{ .Values.region }}
   secretsEncryption: false
   securityGroups:
-  - {{ .Values.security-grp }}
+  - {{ .Values.security_grp }}
   serviceRole: ""
   subnets:
-  - {{ .Values.subnet-grp-1a }}
-  - {{ .Values.subnet-grp-1b }}
-  - {{ .Values.subnet-grp-1c }}
+  - {{ .Values.subnet_grp_1a }}
+  - {{ .Values.subnet_grp_1b }}
+  - {{ .Values.subnet_grp_1c }}
   tags: 
-    app: {{ .Values.app-name }}
+    app: {{ .Values.app_name }}
     ci: {{ .Values.ci }}
     creator: {{ .Values.creator }}
     env: {{ .Values.env }}
