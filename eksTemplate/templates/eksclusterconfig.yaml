@@ -16,12 +16,12 @@ spec:
   - controllerManager
   - scheduler
   nodeGroups:
-  - desiredSize: 2
+  - desiredSize: ${instance-count}
     diskSize: 30
-    ec2SshKey: rancherDev
+    ec2SshKey: ${rancherDev}
     gpu: false
     imageId: null
-    instanceType: t3a.medium
+    instanceType: ${instance.type}
     labels: {}
     launchTemplate: null
     maxSize: 3
@@ -31,8 +31,9 @@ spec:
     resourceTags: {}
     spotInstanceTypes: null
     subnets:
-    - subnet-0b8b13eb91c712eeb
-    - subnet-08715376e57a4f84b
+    - ${subnet-grp-1a}
+    - ${subnet-grp-1b}
+    - ${subnet-grp-1c}
     tags: {}
     userData: null
     version: "1.21"
@@ -40,12 +41,20 @@ spec:
   publicAccess: false
   publicAccessSources:
   - 0.0.0.0/0
-  region: us-east-1
+  region: ${region}
   secretsEncryption: false
   securityGroups:
-  - sg-0b8d625a82a2dc5ef
+  - ${security-grp}
   serviceRole: ""
   subnets:
-  - subnet-0b8b13eb91c712eeb
-  - subnet-08715376e57a4f84b
-  tags: {}
+  - ${subnet-grp-1a}
+  - ${subnet-grp-1b}
+  - ${subnet-grp-1c}
+  tags: 
+    app: ${app-name}
+    ci: ${ci}
+    creator: ${creator}
+    env: ${env}
+    function: ${function}
+    risk: ${risk}
+    uai: ${uai}
