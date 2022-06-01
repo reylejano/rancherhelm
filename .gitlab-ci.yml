@@ -12,6 +12,7 @@ build:
     - sudo su -
     - cd /root/rancher-v2.6.4
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    - ./rancher kubectl get pods
   only:
   - master
 
