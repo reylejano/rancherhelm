@@ -9,7 +9,7 @@ build:
   - rancher-runner
   script:
     - echo "Rancher EKS Deployment"
-    - sudo su
+    - sudo su -
     - ./rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
   only:
   - master
@@ -21,7 +21,7 @@ dry-run:
   - rancher-runner
   script:
     - echo "Rancher EKS Deployment"
-    - sudo su
+    - sudo su - 
     - ./rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - echo "GitLab Dev Dry-Run Completed"
   only:
@@ -34,7 +34,7 @@ rancher-eks-release:
   - rancher-runner
   script:
     - echo "Rancher EKS Deployment"
-    - sudo su
+    - sudo su -
     - ./rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
   only:
   - master
