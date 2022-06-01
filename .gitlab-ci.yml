@@ -1,0 +1,40 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  tags:
+  - rancher-runner
+  script:
+    - echo "Rancher EKS Deployment"
+    - sudo su
+    - ./rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+  only:
+  - master
+
+dry-run:
+  stage: test
+  when: manual
+  tags:
+  - rancher-runner
+  script:
+    - echo "Rancher EKS Deployment"
+    - sudo su
+    - ./rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    - echo "GitLab Dev Dry-Run Completed"
+  only:
+  - master
+
+rancher-eks-release:
+  stage: deploy
+  when: manual
+  tags:
+  - rancher-runner
+  script:
+    - echo "Rancher EKS Deployment"
+    - sudo su
+    - ./rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+  only:
+  - master
