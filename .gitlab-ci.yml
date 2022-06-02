@@ -15,7 +15,9 @@ build:
     - sudo su -
     - cd /root/rancher-v2.6.4
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - kubectl get pods
+    - export KUBECONFIG=/root/.rancher/cli2.json
+    - cat /root/.rancher/cli2.json
+    - kubectl get ns
   only:
   - master
 
