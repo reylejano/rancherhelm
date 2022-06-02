@@ -17,20 +17,20 @@ build:
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
-    - kubectl get ns
+    - kubectl get pods -n eks-cluster
   only:
   - master
 
 dry-run:
   stage: test
-  when: manual
   tags:
   - rancher-runner
   script:
     - echo "Rancher EKS Deployment"
     - sudo su - 
     - cd /root/rancher-v2.6.4
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    - echo $KUBECONFIG
+    - cat $KUBECONFIG
     - echo "GitLab Dev Dry-Run Completed"
   only:
   - master
