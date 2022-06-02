@@ -21,7 +21,7 @@ build:
     - helm list -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - pwd
-    - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-3 ../eksTemplate
+    - helm install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-3 ./eksTemplate
 
   only:
   - master
