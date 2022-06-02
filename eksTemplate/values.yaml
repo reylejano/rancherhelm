@@ -2,7 +2,7 @@
 region: ${region}
 
 ## Basic Parameters for EKS Cluster and Worker Nodes
-instance_count: {instance_count}
+instance_count: ${instance_count}
 sshKey: ${sshKey}
 security_grp: ${security_grp}
 instance_type: ${instance_type}
