@@ -1,26 +1,26 @@
 ## AWS Region ##
-region: ${region}
+region: us-east-1
 
 ## Basic Parameters for EKS Cluster and Worker Nodes
-instance_count: ${instance_count}
-sshKey: ${sshKey}
-security_grp: ${security_grp}
-instance_type: ${instance_type}
+instance_count: 1
+sshKey: rancherDev
+security_grp: sg-0b8d625a82a2dc5ef
+instance_type: t3a.medium
 
 ## Private subnets group 1 ##
-subnet_grp_1a: ${subnet_grp_1a}
-subnet_grp_1b: ${subnet_grp_1b}
-subnet_grp_1c: ${subnet_grp_1c}
+subnet_grp_1a: subnet-01f96511708676ded
+subnet_grp_1b: subnet-08715376e57a4f84b
+subnet_grp_1c: subnet-082145d8bda46c1a5
 
 ## Tags ##
-name: ${eks_name}
-displayName: ${display_name}
-ngName: ${worker_name}
-app_name: ${app_name}
-ci: ${ci}
-creator: ${creator} 
-env: ${env}
-function: ${function}
-risk: ${risk}
-uai: ${uai}
+name: eks-dummy-dev
+displayName: eks-dummy
+ngName: eks-dummy-dev-ng
+app_name: eks-dummy-dev-test
+ci: 1906ca5297cacd14a90cde24a253af16
+creator: rancher-admin-user
+env: dev
+function: app
+risk: s
+uai: deprecated
 
