@@ -11,7 +11,7 @@ build:
   tags:
   - rancher-runner
   script:
-    - echo "Rancher EKS Deployment"
+    - echo "Rancher EKS Provisioning"
     - sudo su -
     - cd /root/rancher-v2.6.4
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
@@ -30,8 +30,9 @@ dry-run:
     - sudo su - 
     - cd /root/rancher-v2.6.4
     - echo $KUBECONFIG
-    - cat $KUBECONFIG
-    - echo "GitLab Dev Dry-Run Completed"
+    - kubectl get eksclusterconfig -n ent-tools-team
+    - helm list 
+    - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-3 ../eksTemplate
   only:
   - master
 
@@ -44,6 +45,6 @@ rancher-eks-release:
     - echo "Rancher EKS Deployment"
     - sudo su -
     - cd /root/rancher-v2.6.4
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    - echo $KUBECONFIG
   only:
   - master
