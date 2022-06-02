@@ -15,7 +15,7 @@ build:
     - sudo su -
     - cd /root/rancher-v2.6.4
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher.exe clusters kf local > /root/local-kubeconfig
+    - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get ns
   only:
