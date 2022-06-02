@@ -18,7 +18,7 @@ build:
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
-    - helm list 
+    - helm list -n ent-tools-team
     - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-3 ../eksTemplate
 
   only:
