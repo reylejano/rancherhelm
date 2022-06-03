@@ -8,7 +8,7 @@ security_grp: sg-0b8d625a82a2dc5ef
 instance_type: t3a.medium
 
 ## EKS Version
-eks_version: 1.21
+eks_version: "1.21"
 
 ## Private subnets group 1 ##
 subnet_grp_1a: subnet-01f96511708676ded
