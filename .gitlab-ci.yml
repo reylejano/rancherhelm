@@ -20,7 +20,6 @@ build:
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
-    - helm install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-3 ./eksTemplate -n ent-tools-team
   only:
   - master
 
@@ -37,7 +36,7 @@ dry-run:
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
-    - helm install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-3 ./eksTemplate --dry-run
+    - helm install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-2 ./eksTemplate -n ent-tools-team --dry-run
   only:
   - master
 
@@ -56,6 +55,6 @@ rancher-eks-release:
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
-    - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-3 ../eksTemplate
+    - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-2 ../eksTemplate -n ent-tools-team
   only:
   - master
