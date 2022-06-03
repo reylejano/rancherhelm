@@ -8,7 +8,7 @@ spec:
   displayName: {{ .Values.displayName }}
   imported: false
   kmsKey: ""
-  kubernetesVersion: "1.21"
+  kubernetesVersion: {{ .Values.eks_version}}
   loggingTypes:
   - api
   - audit
@@ -36,7 +36,7 @@ spec:
     - {{ .Values.subnet_grp_1c }}
     tags: {}
     userData: null
-    version: "1.21"
+    version: {{ .Values.eks_version}}
   privateAccess: true
   publicAccess: false
   publicAccessSources:
