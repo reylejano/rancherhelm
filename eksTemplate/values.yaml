@@ -13,9 +13,9 @@ subnet_grp_1b: subnet-08715376e57a4f84b
 subnet_grp_1c: subnet-082145d8bda46c1a5
 
 ## Tags ##
-name: eks-dummy-dev
-displayName: eks-dummy
-ngName: eks-dummy-dev-ng
+name: eks-dummy-dev-1
+displayName: eks-dummy-1
+ngName: eks-dummy-dev-ng-1
 app_name: eks-dummy-dev-test
 ci: 1906ca5297cacd14a90cde24a253af16
 creator: rancher-admin-user
