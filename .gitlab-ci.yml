@@ -18,11 +18,6 @@ build:
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
-    - helm list -n ent-tools-team
-    - cd $CI_PROJECT_DIR
-    - pwd
-    - helm install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-3 ./eksTemplate
-
   only:
   - master
 
@@ -34,11 +29,12 @@ dry-run:
   script:
     - echo "Rancher EKS Provisioining"
     - sudo su - 
-    - ./root/rancher-v2.6.4/rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher clusters kf local > /root/local-kubeconfig
+    - cd /root/rancher-v2.6.4
+    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - kubectl get eksclusterconfig -n ent-tools-team
-    - helm list 
-    - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-3 ../eksTemplate
+    - cd $CI_PROJECT_DIR
+    - helm list -n ent-tools-team
+    - helm install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-3 ./eksTemplate --dry-run
   only:
   - master
 
@@ -55,8 +51,8 @@ rancher-eks-release:
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
+    - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
-    - pwd
     - helm install -f ../eksTemplate/values.yaml ent-tools-sanbox-dev-3 ../eksTemplate
   only:
   - master
