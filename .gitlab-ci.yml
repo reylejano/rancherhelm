@@ -13,9 +13,10 @@ build:
   script:
     - echo "Rancher EKS Provisioning"
     - sudo su -
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher clusters kf local > /root/local-kubeconfig
-    - export KUBECONFIG=/root/local-kubeconfig
+    # - pwd
+    # - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    # - ./rancher clusters kf local > /root/local-kubeconfig
+    # - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
@@ -24,13 +25,11 @@ build:
 
 dry-run:
   stage: test
-  when: manual
   tags:
   - rancher-runner
   script:
     - echo "Rancher EKS Provisioining"
     - sudo su - 
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
