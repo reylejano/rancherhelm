@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - "groups":
+      - "system:masters"
+      "rolearn": "arn:aws:iam::419922593135:role/bu-gitlab-poweruser"
+      "username": "{{SessionName}}"
+    - "groups":
+      - "system:bootstrappers"
+      - "system:nodes"
+      "rolearn": "arn:aws:iam::419922593135:role/gitlab-instance-profile"
+      "username": "system:node:{{EC2PrivateDNSName}}"
+    - "groups":
+      - "system:masters"
+      "rolearn": "arn:aws:iam::419922593135:role/bu-app-poweruser"
+      "username": "{{SessionName}}"
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
