@@ -13,7 +13,7 @@ build:
   script:
     - echo "Rancher EKS Provisioning"
     - sudo su -
-    # - pwd
+    - pwd
     # - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     # - ./rancher clusters kf local > /root/local-kubeconfig
     # - export KUBECONFIG=/root/local-kubeconfig
