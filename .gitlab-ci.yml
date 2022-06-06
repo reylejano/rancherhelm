@@ -62,21 +62,21 @@ rancher-eks-release:
   only:
   - master
 
-rancher-eks-destroy:
-  stage: destroy
-  when: manual
-  tags:
-  - rancher-runner
-  script:
-    - echo "Rancher EKS Deployment"
-    - sudo su -
-    - cd /root/rancher-v2.6.4
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher clusters kf local > /root/local-kubeconfig
-    - export KUBECONFIG=/root/local-kubeconfig
-    - kubectl get eksclusterconfig -n ent-tools-team
-    - cd $CI_PROJECT_DIR
-    - helm list -n ent-tools-team
-    - helm uninstall ent-tools-sanbox-dev-4 -n ent-tools-team
-  only:
-  - master
+# rancher-eks-destroy:
+#   stage: destroy
+#   when: manual
+#   tags:
+#   - rancher-runner
+#   script:
+#     - echo "Rancher EKS Deployment"
+#     - sudo su -
+#     - cd /root/rancher-v2.6.4
+#     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+#     - ./rancher clusters kf local > /root/local-kubeconfig
+#     - export KUBECONFIG=/root/local-kubeconfig
+#     - kubectl get eksclusterconfig -n ent-tools-team
+#     - cd $CI_PROJECT_DIR
+#     - helm list -n ent-tools-team
+#     - helm uninstall ent-tools-sanbox-dev-4 -n ent-tools-team
+#   only:
+#   - master
