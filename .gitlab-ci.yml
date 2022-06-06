@@ -64,6 +64,7 @@ rancher-eks-release:
 
 rancher-eks-destroy:
   stage: destroy
+  when: manual
   tags:
   - rancher-runner
   script:
@@ -76,6 +77,6 @@ rancher-eks-destroy:
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
-    - helm uninstall -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-4 ./eksTemplate -n ent-tools-team
+    - helm uninstall ent-tools-sanbox-dev-4 -n ent-tools-team
   only:
   - master
