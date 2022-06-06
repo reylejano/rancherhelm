@@ -39,7 +39,7 @@ dry-run:
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
     - helm list -n ent-tools-team
-    - helm rollback ent-tools-sanbox-dev-4 1 -n ent-tools-team
+    # - helm rollback ent-tools-sanbox-dev-4 1 -n ent-tools-team
     - helm upgrade --install -f ./eksTemplate/values.yaml ent-tools-sanbox-dev-4 ./eksTemplate -n ent-tools-team --dry-run --debug
   only:
   - master
