@@ -9,7 +9,7 @@ data:
       - "system:bootstrappers"
       - "system:nodes"
       "rolearn": "arn:aws:iam::419922593135:role/gitlab-instance-profile"
-      "username": "system:node:{{EC2PrivateDNSName}}"
+      "username": "system:node:{{ `{{EC2PrivateDNSName}}` }}"
     - "groups":
       - "system:masters"
       "rolearn": "arn:aws:iam::419922593135:role/bu-app-poweruser"
