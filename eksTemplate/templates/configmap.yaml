@@ -4,7 +4,7 @@ data:
     - "groups":
       - "system:masters"
       "rolearn": "arn:aws:iam::419922593135:role/bu-gitlab-poweruser"
-      "username": "{{SessionName}}"
+      "username": "{{ `{{SessionName}}` }}"
     - "groups":
       - "system:bootstrappers"
       - "system:nodes"
@@ -13,7 +13,7 @@ data:
     - "groups":
       - "system:masters"
       "rolearn": "arn:aws:iam::419922593135:role/bu-app-poweruser"
-      "username": "{{SessionName}}"
+      "username": "{{ `{{SessionName}}` }}"
 kind: ConfigMap
 metadata:
   name: aws-auth
