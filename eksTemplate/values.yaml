@@ -24,3 +24,5 @@ function: app
 risk: s
 uai: deprecated
 
+SessionName: dummy
+
