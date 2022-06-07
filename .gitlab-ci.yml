@@ -14,7 +14,7 @@ build:
   script:
     - echo "Rancher EKS Provisioning"
     - sudo su -
-    - cd /root/rancher-v2.6.4
+    - cd /root/rancher-v2.6.5
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
@@ -32,7 +32,7 @@ dry-run:
   script:
     - echo "Rancher EKS Provisioining"
     - sudo su - 
-    - cd /root/rancher-v2.6.4
+    - cd /root/rancher-v2.6.5
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
@@ -51,7 +51,7 @@ rancher-eks-release:
   script:
     - echo "Rancher EKS Deployment"
     - sudo su -
-    - cd /root/rancher-v2.6.4
+    - cd /root/rancher-v2.6.5
     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
     - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
@@ -70,7 +70,7 @@ rancher-eks-release:
 #   script:
 #     - echo "Rancher EKS Deployment"
 #     - sudo su -
-#     - cd /root/rancher-v2.6.4
+#     - cd /root/rancher-v2.6.5
 #     - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
 #     - ./rancher clusters kf local > /root/local-kubeconfig
 #     - export KUBECONFIG=/root/local-kubeconfig
