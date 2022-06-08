@@ -15,8 +15,9 @@ build:
     - echo "Rancher EKS Provisioning"
     - sudo su -
     - cd /root/rancher-v2.6.5
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher clusters kf local > /root/local-kubeconfig
+    - echo -n ${kubeconfig} > /root/local-kubeconfig
+    # - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    # - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
@@ -33,8 +34,8 @@ dry-run:
     - echo "Rancher EKS Provisioining"
     - sudo su - 
     - cd /root/rancher-v2.6.5
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher clusters kf local > /root/local-kubeconfig
+    - echo -n ${kubeconfig} > /root/local-kubeconfig
+    # - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
@@ -52,8 +53,9 @@ rancher-eks-release:
     - echo "Rancher EKS Deployment"
     - sudo su -
     - cd /root/rancher-v2.6.5
-    - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
-    - ./rancher clusters kf local > /root/local-kubeconfig
+    - echo -n ${kubeconfig} > /root/local-kubeconfig
+    # - ./rancher login https://rancher-dev.corp.wabtec.com --token ${token}
+    # - ./rancher clusters kf local > /root/local-kubeconfig
     - export KUBECONFIG=/root/local-kubeconfig
     - kubectl get eksclusterconfig -n ent-tools-team
     - cd $CI_PROJECT_DIR
