@@ -1,60 +1,83 @@
-apiVersion: eks.cattle.io/v1
-kind: EKSClusterConfig
+apiVersion: management.cattle.io/v3
+kind: Cluster
 metadata:
+  labels:
+    cattle.io/creator: norman
+    provider.cattle.io: eks
   name: {{ .Values.name }}
-  namespace: cattle-global-data
 spec:
-  amazonCredentialSecret: cattle-global-data:cc-px5ft
+  agentImageOverride: ""
+  answers: {}
+  description: ""
+  desiredAgentImage: ""
+  desiredAuthImage: ""
   displayName: {{ .Values.displayName }}
-  imported: false
-  kmsKey: ""
-  kubernetesVersion: {{ .Values.kubeversion | squote }}
-  loggingTypes:
-  - api
-  - audit
-  - authenticator
-  - controllerManager
-  - scheduler
-  nodeGroups:
-  - desiredSize: {{ .Values.instance_count }}
-    diskSize: 30
-    ec2SshKey: {{ .Values.sshKey }}
-    gpu: false
-    imageId: null
-    instanceType: {{ .Values.instance_type }}
-    labels: {}
-    launchTemplate: null
-    maxSize: 3
-    minSize: 1
-    nodegroupName: {{ .Values.ngName }}
-    requestSpotInstances: false
-    resourceTags: {}
-    spotInstanceTypes: null
+  dockerRootDir: /var/lib/docker
+  eksConfig:
+    amazonCredentialSecret: cattle-global-data:cc-px5ft
+    displayName: {{ .Values.displayName }}
+    imported: false
+    kmsKey: ""
+    kubernetesVersion: {{ .Values.kubeversion | squote }}
+    loggingTypes:
+    - api
+    - audit
+    - authenticator
+    - controllerManager
+    - scheduler
+    nodeGroups:
+    - desiredSize: {{ .Values.instance_count }}
+      diskSize: 50
+      ec2SshKey: {{ .Values.sshKey }}
+      gpu: false
+      imageId: null
+      instanceType: {{ .Values.instance_type }}
+      labels: {}
+      launchTemplate: null
+      maxSize: 2
+      minSize: 2
+      nodegroupName: {{ .Values.ngName }}
+      requestSpotInstances: false
+      resourceTags:
+        Name: {{ .Values.worker_name }}
+        app: {{ .Values.app_name }}
+        creator: {{ .Values.creator }}
+        env: {{ .Values.env }}
+        function: {{ .Values.function }}
+        risk: {{ .Values.risk }}
+        uai: {{ .Values.uai }}
+      spotInstanceTypes: null
+      subnets:
+      - {{ .Values.subnet_grp_1a }}
+      - {{ .Values.subnet_grp_1b }}
+      - {{ .Values.subnet_grp_1c }}
+      tags:
+        app: {{ .Values.app_name }}
+        creator: {{ .Values.creator }}
+        env: {{ .Values.env }}
+        function: {{ .Values.function }}
+        risk: {{ .Values.risk }}
+        uai: {{ .Values.uai }}
+      userData: null
+      version: {{ .Values.kubeversion | squote }}
+    privateAccess: true
+    publicAccess: false
+    publicAccessSources:
+    - 0.0.0.0/0
+    region: {{ .Values.region }}
+    secretsEncryption: false
+    securityGroups:
+    - {{ .Values.security_grp }}
+    serviceRole: ""
     subnets:
     - {{ .Values.subnet_grp_1a }}
     - {{ .Values.subnet_grp_1b }}
     - {{ .Values.subnet_grp_1c }}
-    tags: {}
-    userData: null
-    version: {{ .Values.kubeversion | squote }}
-  privateAccess: true
-  publicAccess: false
-  publicAccessSources:
-  - 0.0.0.0/0
-  region: {{ .Values.region }}
-  secretsEncryption: false
-  securityGroups:
-  - {{ .Values.security_grp }}
-  serviceRole: ""
-  subnets:
-  - {{ .Values.subnet_grp_1a }}
-  - {{ .Values.subnet_grp_1b }}
-  - {{ .Values.subnet_grp_1c }}
-  tags: 
-    app: {{ .Values.app_name }}
-    ci: {{ .Values.ci }}
-    creator: {{ .Values.creator }}
-    env: {{ .Values.env }}
-    function: {{ .Values.function }}
-    risk: {{ .Values.risk }}
-    uai: {{ .Values.uai }}
+    tags: 
+      app: {{ .Values.app_name }}
+      ci: {{ .Values.ci }}
+      creator: {{ .Values.creator }}
+      env: {{ .Values.env }}
+      function: {{ .Values.function }}
+      risk: {{ .Values.risk }}
+      uai: {{ .Values.uai }}
