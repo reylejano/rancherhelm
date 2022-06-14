@@ -14,7 +14,7 @@ spec:
   displayName: {{ .Values.displayName }}
   dockerRootDir: /var/lib/docker
   eksConfig:
-    amazonCredentialSecret: cattle-global-data:cc-px5ft
+    amazonCredentialSecret: cattle-global-data:cc-9798b
     displayName: {{ .Values.displayName }}
     imported: false
     kmsKey: ""
