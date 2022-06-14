@@ -1,23 +1,23 @@
 ## AWS Region ##
-region: us-east-1
+region: us-west-2
 
 ## Basic Parameters for EKS Cluster and Worker Nodes
 instance_count: 2
 sshKey: rancherDev
-security_grp: sg-0b8d625a82a2dc5ef
+security_grp: sg-0f386ba22a2aebf24
 instance_type: t3a.medium
 
 ## Private subnets group 1 ##
-subnet_grp_1a: subnet-01f96511708676ded
-subnet_grp_1b: subnet-08715376e57a4f84b
-subnet_grp_1c: subnet-082145d8bda46c1a5
+subnet_grp_1a: subnet-0ee270de6a08b94c2
+subnet_grp_1b: subnet-006816ece808f4cdc
+subnet_grp_1c: subnet-04fad85206c9bed9e
 
 ## Tags ##
-worker_name: eks-sandbox-worker
-name: eks-sandbox-dev-1
-displayName: eks-sandbox-1
-ngName: eks-sandbox-dev-ng-1
-app_name: eks-sandbox-dev-test
+worker_name: eks-chart-worker
+name: eks-chart-dev-1
+displayName: eks-chart1
+ngName: eks-chart-dev-ng-1
+app_name: eks-charter-dev-test
 ci: 1906ca5297cacd14a90cde24a253af16
 creator: rancher-admin-user
 env: dev
@@ -26,5 +26,5 @@ risk: s
 uai: deprecated
 
 ## EKS Kubernetes Version ###
-kubeversion: 1.22
+kubeversion: 1.21
 
