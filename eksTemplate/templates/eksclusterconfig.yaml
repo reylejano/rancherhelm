@@ -28,7 +28,7 @@ spec:
     nodeGroups:
     - desiredSize: {{ .Values.instance_count }}
       diskSize: 50
-      ec2SshKey: {{ .Values.sshKey }}
+#      ec2SshKey: {{ .Values.sshKey }}
       gpu: false
       imageId: null
       instanceType: {{ .Values.instance_type }}
