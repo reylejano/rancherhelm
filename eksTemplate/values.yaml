@@ -2,8 +2,8 @@
 region: us-west-2
 
 ## Basic Parameters for EKS Cluster and Worker Nodes
-instance_count: 2
-sshKey: rancherDev
+instance_count: 1
+# sshKey: rancherDev
 security_grp: sg-0f63af43391e2d781
 instance_type: t3a.medium
 
