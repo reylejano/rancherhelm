@@ -17,7 +17,7 @@ worker_name: eks-chart-worker
 name: eks-chart-dev-1
 displayName: eks-chart1
 ngName: eks-chart-dev-ng-1
-app_name: eks-charter-dev-test
+app_name: eks-chart-dev-test
 ci: 1906ca5297cacd14a90cde24a253af16
 creator: rancher-admin-user
 env: dev
